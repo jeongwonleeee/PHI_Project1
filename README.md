@@ -11,25 +11,33 @@
 - 주요 라이브러리
     - Selenium (웹페이지 자동화)
     - pandas
+    - openpyxl
+    - pymysql
 - 개발 환경 
     - Pycharm
-    - pymysql (MySQL 연동)
+    - DBeaver
 - 활용 드라이버
   - chromeDriver
 
 # 사용 방법
-Pulmuone Scraper를 사용하기 위한 방법을 나열합니다.
+Pulmuone Scraper를 사용하기 위한 방법과 을 나열합니다.
 
-사용 방법은 IDE(Pycharm)를 통한 방법과 CMD에서 실행하는 2가지 방법이 있습니다.
+사용 방법은 IDE(Pycharm, DBeaver), MariaDB를 통한 방법과 CMD에서 실행하는 2가지 방법이 있습니다.
 
 ## 사전 설치 항목 
 1. Python 설치
    - Link: https://www.python.org/downloads/
 
-3. ChromeDriver 설치
+2. ChromeDriver 설치
    - Link: ~~~~
 
-5. Pycharm 설치(Option)
+3. Pycharm 설치(Option)
+   - Link: ~~~~
+  
+4. MariaDB 설치
+   - Link: ~~~~
+  
+5. dBeaver 설치
    - Link: ~~~~
 
 ## 실행 방법
@@ -55,7 +63,8 @@ git clone https://github.com/jeongwonleeee/PHI_Project1.git
 cd PHI_Project1
 python3 main.py
 ```
-
+### MySQL/MariaDB에서 실행하기
+- 엑셀 파일을 불러오기 전, CREATE TABLE로 테이블을 먼저 생성해야합니다. 
 
 # 주요 코드 설명
 
