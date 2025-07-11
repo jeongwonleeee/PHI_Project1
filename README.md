@@ -32,10 +32,10 @@ Pulmuone Scraper를 사용하기 위한 방법과 을 나열합니다.
    - Link: [ https://sites.google.com/chromium.org/driver/](https://sites.google.com/chromium.org/driver/)
 
 3. Pycharm 설치(Option)
-   - Link: [~~~~](https://www.jetbrains.com/pycharm/download/?section=windows)
+   - Link: [pycharm](https://www.jetbrains.com/pycharm/download/?section=windows)
   
 4. MariaDB 설치
-   - Link: [~~~~](https://mariadb.org/download/?t=mariadb&p=mariadb&r=11.8.2&os=windows&cpu=x86_64&pkg=msi&mirror=blendbyte)
+   - Link: [mariaDB](https://mariadb.org/download/?t=mariadb&p=mariadb&r=11.8.2&os=windows&cpu=x86_64&pkg=msi&mirror=blendbyte)
    - root 비밀번호 설정
    - 포트 번호
    - 서비스로 등록
@@ -79,7 +79,7 @@ git clone https://github.com/jeongwonleeee/PHI_Project1.git
 2. insert_pulmuone_data.py
 
     2-1 DBeaver 설치 (Option)
-    - Link: (https://dbeaver.io/download/)
+    - Link:[DBeaver](https://dbeaver.io/download/)
     - New Database Connection
     - MariaDB 선택
     - 정보 입력
