@@ -1,7 +1,7 @@
 # Pulmuone Scraper & DB Inserter
 이 프로젝트는 Python Selenium을 이용해서
 **풀무원 쇼핑몰의 상품 데이터를 자동으로 수집** 하고,
-그 결과를 **엑셀 파일로 저장한 뒤, MariaDB에 삽입하는 프로그램** 입니다.
+그 결과를 **엑셀 파일로 저장한 뒤, MariaDB에 삽입하는 작업** 입니다.
 
 -----
 
@@ -10,9 +10,9 @@
     - Python
 - 주요 라이브러리
     - Selenium (웹페이지 자동화)
-    - pandas
-    - openpyxl
-    - pymysql
+    - pandas (데이터 분석)
+    - openpyxl (엑셀 저장)
+    - pymysql (DB 연결)
 - 개발 환경 
     - Pycharm
     - DBeaver
@@ -26,19 +26,19 @@ Pulmuone Scraper를 사용하기 위한 방법과 을 나열합니다.
 
 ## 사전 설치 항목 
 1. Python 설치
-   - Link: https://www.python.org/downloads/
+   - Link: [https://www.python.org/downloads/](https://www.python.org/downloads/)
 
 2. ChromeDriver 설치
-   - Link: ~~~~
+   - Link: [ https://sites.google.com/chromium.org/driver/](https://sites.google.com/chromium.org/driver/)
 
 3. Pycharm 설치(Option)
-   - Link: ~~~~
+   - Link: [~~~~](https://www.jetbrains.com/pycharm/download/?section=windows)
   
 4. MariaDB 설치
-   - Link: ~~~~
-  
-5. dBeaver 설치
-   - Link: ~~~~
+   - Link: [~~~~](https://mariadb.org/download/?t=mariadb&p=mariadb&r=11.8.2&os=windows&cpu=x86_64&pkg=msi&mirror=blendbyte)
+   - root 비밀번호 설정
+   - 포트 번호
+   - 서비스로 등록
 
 ## 실행 방법
 
@@ -53,18 +53,48 @@ git clone https://github.com/jeongwonleeee/PHI_Project1.git
 - 실행
 
 ### CMD 창에서 실행하기
-1. Git pull
-```bash
-git clone https://github.com/jeongwonleeee/PHI_Project1.git
-```
+1. main.py
+    1-1. Git pull
+    ```bash
+    git clone https://github.com/jeongwonleeee/PHI_Project1.git
+    ```
+    1-3. selenium 설치 (Option)
+    ```bash
+    pip install selenium
+    ```
+    1-4. pandas 설치 (Option)
+    ```bash
+    pip install pandas
+    ```
+    1-5 openpyxl 설치 (Option)
+    ```bash
+    pip install openpyxl
+    ```
+    1-6. Python 파일 실행
+    ```bash
+    cd PHI_Project1
+    python3 main.py
+    ```
 
-2. Python 파일 실행
-```bash
-cd PHI_Project1
-python3 main.py
-```
+2. insert_pulmuone_data.py
+    2-1 DBeaver 설치 (Option)
+    - Link: [~~~~](https://dbeaver.io/download/)
+    - New Database Connection
+    - MariaDB 선택
+    - 정보 입력
+    2-2 엑셀 파일 준비
+    - 파일명: `pulmuone_products_with_tag.xlsx`
+    - 위치:`C:/Users/pa/PyCharmMiscProject/` 또는 코드에서 지정한 경로에 위치
+     
 ### MySQL/MariaDB에서 실행하기
-- 엑셀 파일을 불러오기 전, CREATE TABLE로 테이블을 먼저 생성해야합니다. 
+- 엑셀 파일만을 원하면 main.py만 실행합니다.
+- 데이터베이스까지 확인하고 싶다면 엑셀 파일을 불러오기 전, dBeaver에서 테이블을 먼저 생성해야합니다. 
+
+### DB 삽입 실행 방법
+1. 엑셀 파일 준비
+   - 파일명: `pulmuone_products_with_tag.xlsx`
+   - 위치:`C:/Users/pa/PyCharmMiscProject/` 또는 코드에서 지정한 경로에 위치
+  
 
 # 주요 코드 설명
 
