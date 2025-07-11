@@ -77,8 +77,9 @@ git clone https://github.com/jeongwonleeee/PHI_Project1.git
     ```
 
 2. insert_pulmuone_data.py
+
     2-1 DBeaver 설치 (Option)
-    - Link: [~~~~](https://dbeaver.io/download/)
+    - Link: (https://dbeaver.io/download/)
     - New Database Connection
     - MariaDB 선택
     - 정보 입력
