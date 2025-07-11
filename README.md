@@ -82,19 +82,21 @@ git clone https://github.com/jeongwonleeee/PHI_Project1.git
     - New Database Connection
     - MariaDB 선택
     - 정보 입력
+  
     2-2 엑셀 파일 준비
     - 파일명: `pulmuone_products_with_tag.xlsx`
     - 위치:`C:/Users/pa/PyCharmMiscProject/` 또는 코드에서 지정한 경로에 위치
+  
+    2-3 Python 파일 실행
+    ```bash
+    cd PHI_Project1
+    python3 insert_pulmuone_data.py
+    ```
      
 ### MySQL/MariaDB에서 실행하기
 - 엑셀 파일만을 원하면 main.py만 실행합니다.
 - 데이터베이스까지 확인하고 싶다면 엑셀 파일을 불러오기 전, dBeaver에서 테이블을 먼저 생성해야합니다. 
 
-### DB 삽입 실행 방법
-1. 엑셀 파일 준비
-   - 파일명: `pulmuone_products_with_tag.xlsx`
-   - 위치:`C:/Users/pa/PyCharmMiscProject/` 또는 코드에서 지정한 경로에 위치
-  
 
 # 주요 코드 설명
 
