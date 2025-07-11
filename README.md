@@ -38,7 +38,7 @@ Pulmuone Scraper를 사용하기 위한 방법과 을 나열합니다.
    - Link: [mariaDB](https://mariadb.org/download/?t=mariadb&p=mariadb&r=11.8.2&os=windows&cpu=x86_64&pkg=msi&mirror=blendbyte)
    - root 비밀번호 설정
    - 포트 번호
-   - 서비스로 등록
+   - 서비스 등록
 
 ## 실행 방법
 
