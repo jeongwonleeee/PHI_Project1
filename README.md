@@ -1,7 +1,7 @@
-# Pulmuone Scraper
+# Pulmuone Scraper & DB Inserter
 이 프로젝트는 Python Selenium을 이용해서
 **풀무원 쇼핑몰의 상품 데이터를 자동으로 수집** 하고,
-그 결과를 **엑셀 파일로 저장하는 프로그램** 입니다.
+그 결과를 **엑셀 파일로 저장한 뒤, MariaDB에 삽입하는 프로그램** 입니다.
 
 -----
 
@@ -13,6 +13,7 @@
     - pandas
 - 개발 환경 
     - Pycharm
+    - pymysql (MySQL 연동)
 - 활용 드라이버
   - chromeDriver
 
@@ -154,6 +155,51 @@ driver.quit()
 ```python
 df = pd.DataFrame(data)
 df.to_excel("pulmuone_products_with_tag.xlsx", index=False)
+```
+
+### 엑셀 파일 불러오기
+```python
+import pandas as pd
+import pymysql
+df = pd.read_excel("pulmuone_products_with_tag.xlsx")
+```
+### DB 연결
+```python
+conn = pymysql.connect(
+    host='localhost',
+    user='your_db_user',
+    password='your_db_password',
+    db='your_db_name',
+    charset='utf8mb4',
+    autocommit=True
+)
+cursor = conn.cursor()
+```
+실제 사용할 때는 user, password, db를 본인의 정보로 바꿔야 합니다.
+
+# 데이터 삽입 반복
+```python
+for i, row in df.iterrows():
+    sql = """
+    INSERT INTO `pulmuone-products` (name, price, discount_rate, tag)
+    VALUES (%s, %s, %s, %s)
+    """
+    cursor.execute(sql, (
+        row['상품명'],
+        int(str(row['가격']).replace(',', '')),
+        str(row['할인율']),
+        str(row['태그'])
+    ))
+```
+가격은 엑셀에 쉼표(,)가 포함되어 있을 수 있으므로 str(row['가격']).replace(',', '')를 사용해
+
+쉼표를 제거한 후 int()로 정수형으로 변환합니다.
+
+### DB 연결 종료
+```python
+cursor.close()
+conn.close()
+print("✅ 데이터 삽입 완료!")
 ```
 
 # 실행 GIF
