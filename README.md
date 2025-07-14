@@ -5,8 +5,10 @@
 
 -----
 
-- 엑셀 파일만을 원하면 main.py만 실행합니다.
-- 
+** 엑셀 파일만을 원하면 main.py만 실행합니다.**
+** 데이터베이스까지 확인하고 싶다면 1. main.py 2. insert_pulmuone_data.py 순서대로 실행해주셔야 하고
+2번 실행 전 dBeaver에서 테이블을 먼저 생성해야합니다.
+
 # 사용 기술
 - 개발 환경
     - Python
@@ -101,11 +103,6 @@ git clone https://github.com/jeongwonleeee/PHI_Project1.git
       ```bash
     pip install matplotlib
     ```
-     
-### MySQL/MariaDB에서 실행하기
-- 엑셀 파일만을 원하면 main.py만 실행합니다.
-- 데이터베이스까지 확인하고 싶다면 엑셀 파일을 불러오기 전, dBeaver에서 테이블을 먼저 생성해야합니다. 
-
 
 # 주요 코드 설명
 
