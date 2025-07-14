@@ -13,6 +13,7 @@
     - pandas (데이터 분석)
     - openpyxl (엑셀 저장)
     - pymysql (DB 연결)
+    - matplotlib (그래프)
 - 개발 환경 
     - Pycharm
     - DBeaver
@@ -93,6 +94,7 @@ git clone https://github.com/jeongwonleeee/PHI_Project1.git
     cd PHI_Project1
     python3 insert_pulmuone_data.py
     ```
+3. 
      
 ### MySQL/MariaDB에서 실행하기
 - 엑셀 파일만을 원하면 main.py만 실행합니다.
@@ -243,5 +245,13 @@ cursor.close()
 conn.close()
 print("✅ 데이터 삽입 완료!")
 ```
+
+# `BEST 상품`과 `일반 상품`의 평균 할인율을 비교 결과
+### 라이브러리
+```python
+import pandas as pd
+import matplotlib.pyplot as plt # 그래프를 그리기 위한 라이브러리
+import matplotlib.font_manager as fm # 한글 폰트 깨짐 방지를 위한 설정용
+import platform
 
 # 실행 GIF
