@@ -5,6 +5,8 @@
 
 -----
 
+- 엑셀 파일만을 원하면 main.py만 실행합니다.
+- 
 # 사용 기술
 - 개발 환경
     - Python
@@ -94,7 +96,11 @@ git clone https://github.com/jeongwonleeee/PHI_Project1.git
     cd PHI_Project1
     python3 insert_pulmuone_data.py
     ```
-3. 
+3. tag.py
+   - matplotlib 라이브러리 설치 (pycharm or cmd)
+      ```bash
+    pip install matplotlib
+    ```
      
 ### MySQL/MariaDB에서 실행하기
 - 엑셀 파일만을 원하면 main.py만 실행합니다.
@@ -250,8 +256,49 @@ print("✅ 데이터 삽입 완료!")
 ### 라이브러리
 ```python
 import pandas as pd
-import matplotlib.pyplot as plt # 그래프를 그리기 위한 라이브러리
-import matplotlib.font_manager as fm # 한글 폰트 깨짐 방지를 위한 설정용
+import matplotlib.pyplot as plt #그래프를 그리기 위한 라이브러리
+import matplotlib.font_manager as fm #한글 폰트 깨짐 방지를 위한 설정용
 import platform
+```
+### 엑셀 파일 불러오기
+```python
+df = pd.read_excel("pulmuone_products_with_tag.xlsx")
+```
+### 할인율을 숫자로 바꾸기
+```python
+df['할인율(숫자)'] = df['할인율'].str.replace('%', '').astype(int)
+```
+### Best 상품과 일반 상품 나누기
+```python
+best_avg = df[df['태그'] == 'BEST']['할인율(숫자)'].mean()
+non_best_avg = df[df['태그'] != 'BEST']['할인율(숫자)'].mean()
+labels = ['BEST 상품', '일반 상품']
+discounts = [best_avg, non_best_avg]
+```
+### 그래프 그리기
+```python
+plt.figure(figsize=(8, 6))
+bars = plt.bar(labels, discounts, color=['skyblue', 'lightgray'])
 
+for bar in bars:
+    height = bar.get_height()
+    plt.text(bar.get_x() + bar.get_width()/2, height + 0.5, f'{height:.1f}%', ha='center', fontsize=12)
+
+plt.title('BEST 상품 vs 일반 상품 평균 할인율 비교', fontsize=15)
+plt.ylabel('평균 할인율 (%)', fontsize=12)
+plt.ylim(0, max(discounts) + 5)
+plt.grid(axis='y', linestyle='--', alpha=0.6)
+plt.tight_layout()
+```
+
+### 그래프 저장하기 (Option)
+```python
+plt.savefig("discount_comparison_final.png", dpi=300)
+```
 # 실행 GIF
+
+
+<img width="1394" height="858" alt="image" src="https://github.com/user-attachments/assets/13377b74-ac52-44a4-9800-bf567870a208" />
+
+- BEST 상품 평균 할인율: 약 14%
+- 일반 상품 평균 할인율: 약 5%
